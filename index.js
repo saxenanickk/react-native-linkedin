@@ -288,18 +288,18 @@ export default class LinkedInModal extends React.Component {
   }
 
   renderButton = () => {
-    const { renderButton, linkText } = this.props
-    if (renderButton) return renderButton()
-    return (
-      <TouchableOpacity
-          accessibilityComponentType={'button'}
-          accessibilityTraits={['button']}
-          onPress={this.open}
-        >
-          <Text>{linkText}</Text>
-        </TouchableOpacity>
-    )
-  }
+		const { renderButton, linkText } = this.props
+
+		return (
+			<TouchableOpacity
+				activeOpacity={1}
+				accessibilityComponentType={"button"}
+				accessibilityTraits={["button"]}
+				onPress={this.open}>
+				{renderButton ? renderButton() : <Text>{linkText}</Text>}
+			</TouchableOpacity>
+		)
+	}
 
   renderClose = () => {
     const { renderClose } = this.props
